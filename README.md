@@ -138,6 +138,6 @@ VIOCON_Report_Tool/
 
 ## Versionshistorie
 
-Siehe [CHANGELOG.md](CHANGELOG.md) für alle Änderungen.
+Siehe [Changelog.md](https://github.com/VortexNode/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
 
 Aktuelle Version: **2.2**
