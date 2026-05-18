@@ -4,6 +4,23 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.3 – Mai 2026
+
+### Neu
+- **LIS Gutschrift-Abgleich**: Im LIS-Report-Modus kann optional eine Monta-Gutschrift (PDF) hinzugefügt werden. Das Tool erkennt automatisch das Monta-LIS-Rechnungsformat (inkl. realistischer Dateinamen wie `Kunde LIS-MM-YYYY-invoice-....pdf`), summiert alle kWh-Einträge aus dem Marketplace-Abschnitt und fügt einen Abgleichsabschnitt in den Report ein.
+- **Vortex Studios Logo**: Das App-Logo wurde auf das Vortex Studios / VortexNode-Logo aktualisiert.
+
+### Verbessert
+- **Fehlermeldungen**: Alle Fehler nennen jetzt konkret den Dateinamen, die fehlende Spalte und mögliche Ursachen.
+- **EXE-Archivierung**: `build.bat` sichert die vorherige EXE automatisch mit Versionsnummer unter `dist/archive/`.
+- **Drag & Drop**: Funktioniert jetzt auch wenn die EXE mit UAC-Adminrechten läuft (UIPI-Filter wird korrekt umgangen).
+- **Balkendiagramm**: Lange Ladepunkt-Namen werden automatisch abgekürzt (LP 1, LP 2, …) mit einer Legende rechts daneben.
+- **Kein Korrekturbetrag = kein Fehler**: Wenn in der Monta-Rechnung kein Korrekturbetrag gefunden wird, erscheint jetzt keine Warnung mehr – das ist ein gutes Zeichen (keine Korrekturen nötig).
+- **Header-Layout**: „Report Tool" und „Elektromobilität. Einfach. Machen." sitzen näher am orangenen Trennstrich.
+- **Checkmark**: Der Haken in Schritt 3 (Verarbeitung) wird jetzt korrekt gerendert.
+
+---
+
 ## Version 2.2 – Mai 2026
 
 ### Neu
@@ -57,3 +74,4 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 - Manuelle Dateiauswahl über den Windows-Dateidialog.
 - Einfache Ergebnisausgabe als PDF.
 - Keine Python-Installation auf dem Zielrechner erforderlich (eigenständige EXE).
+
