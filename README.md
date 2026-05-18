@@ -107,17 +107,30 @@ Die fertige EXE liegt in `dist\VIOCON_Report_Tool.exe` (~92 MB).
 
 ```
 VIOCON_Report_Tool/
-├── gui.py                      # Hauptfenster & Einstiegspunkt
-├── extractor.py                # Datei-Erkennung & Metadaten-Extraktion
-├── viocon_fleet_report.py      # Flotten-Report-Logik
-├── viocon_lis_report.py        # LIS-Report-Logik
-├── VIOCON_Report_Tool.spec     # PyInstaller Build-Konfiguration
+│
+├── src/                        # Python-Quellcode
+│   ├── gui.py                  # Hauptfenster & Einstiegspunkt
+│   ├── extractor.py            # Datei-Erkennung & Metadaten-Extraktion
+│   ├── viocon_fleet_report.py  # Flotten-Report-Logik
+│   └── viocon_lis_report.py    # LIS-Report-Logik
+│
+├── assets/
+│   ├── app/                    # Laufzeit-Assets (Icon, Logo)
+│   ├── screenshots/            # App-Screenshots
+│   └── design/                 # Design-Vorlagen & Konzepte
+│
+├── docs/
+│   ├── CHANGELOG.md            # Vollständige Versionshistorie
+│   └── RELEASE_NOTES.md        # GitHub-Release-Beschreibung (aktuelle Version)
+│
+├── build/                      # PyInstaller-Zwischendateien (gitignored)
+├── dist/                       # Fertige EXE (gitignored)
+│
+├── README.md
+├── .gitignore
 ├── build.bat                   # Build-Skript
 ├── requirements.txt            # Python-Abhängigkeiten
-├── app_icon.ico                # App-Icon
-├── logo_viocon.jpg             # VIOCON-Logo für Reports
-├── README.md                   # Diese Datei
-└── CHANGELOG.md                # Versionshistorie
+└── VIOCON_Report_Tool.spec     # PyInstaller Build-Konfiguration
 ```
 
 ---
@@ -138,6 +151,6 @@ VIOCON_Report_Tool/
 
 ## Versionshistorie
 
-Siehe [Changelog.md](https://github.com/VortexNode/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
+Siehe [docs/CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
 
-Aktuelle Version: **2.2**
+Aktuelle Version: **2.3**
