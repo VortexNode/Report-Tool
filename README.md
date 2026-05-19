@@ -81,7 +81,8 @@ Mit **„Neuen Report erstellen"** wird der komplette Workflow zurückgesetzt.
 
 | Einstellung | Beschreibung |
 |-------------|-------------|
-| Standard-Speicherpfad | Ordner, der beim „Datei speichern"-Dialog vorausgewählt wird. Leer lassen = letzter verwendeter Systempfad. |
+| Standard-Ordner Import | Ordner, der beim „Dateien auswählen"-Dialog vorausgewählt wird. Leer lassen = letzter verwendeter Systempfad. |
+| Standard-Ordner Export | Ordner, der beim „Report speichern"-Dialog vorausgewählt wird. Leer lassen = letzter verwendeter Systempfad. |
 
 ---
 
@@ -150,6 +151,6 @@ VIOCON_Report_Tool/
 
 ## Versionshistorie
 
-Siehe [CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
+Siehe [CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/CHANGELOG.md) für alle Änderungen.
 
 Aktuelle Version: **2.4**
