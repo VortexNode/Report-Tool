@@ -4,6 +4,16 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.5 – Mai 2026
+
+### Neu
+- **Einstellungen – Import-Ordner**: Im Einstellungs-Dialog kann jetzt zusätzlich zum Export-Ordner auch ein Standard-Ordner für den Daten-Import festgelegt werden. Der Datei-Auswahl-Dialog öffnet sich dann direkt in diesem Ordner.
+
+### Bugfixes
+- **Umlaute im Report behoben**: ä, ö, ü und ß wurden in den PDF-Reports nicht korrekt dargestellt. Beide Report-Module registrieren jetzt beim Start Arial aus den Windows-Systemfonts, der vollständige Unicode-Unterstützung bietet. Bei fehlendem Font wird automatisch auf Helvetica zurückgefallen.
+
+---
+
 ## Version 2.4 – Mai 2026
 
 ### Bugfixes
