@@ -16,7 +16,7 @@ Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladev
 
 | Modus | Beschreibung | Benötigte Dateien |
 |-------|-------------|-------------------|
-| **LIS-Report** | Ladeinfrastruktur-Auswertung | 2× Excel (Ladevorgänge + Ladestationen) |
+| **LIS-Report** | Ladeinfrastruktur-Auswertung | 2× Excel (Ladevorgänge + Ladestationen) · optional: 1× PDF (Monta-Gutschrift) |
 | **Flotten-Report** | Flotten-Buchungsnachweis | 1× Excel (Ladevorgänge) + 1× PDF (Monta-Rechnung) |
 | **Standard** | LIS + Flotte in einem Schritt | 3× Excel + 1× PDF |
 
@@ -38,15 +38,14 @@ Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladev
 
 - Windows 10 oder Windows 11 (64-Bit)
 - Keine Python-Installation notwendig
-- Administratorrechte (UAC-Prompt beim Start)
 
 ---
 
 ## Installation & Start
 
-1. `VIOCON_Report_Tool.exe` herunterladen oder aus dem `dist/`-Ordner kopieren
-2. Doppelklick auf die EXE
-3. UAC-Nachfrage mit **„Ja"** bestätigen
+1. `VIOCON_Report_Tool.exe` (und `Unblock.bat`) aus dem `dist/`-Ordner kopieren
+2. **Nur beim ersten Mal auf einem neuen PC:** `Unblock.bat` per Rechtsklick → „Als Administrator ausführen" starten – entfernt die Windows-SmartScreen-Sperre einmalig
+3. Doppelklick auf die EXE
 4. Das Tool startet mit einem Ladebildschirm – das Hauptfenster öffnet sich automatisch
 
 Keine Installation erforderlich. Die EXE ist portabel und läuft von jedem Speicherort.
@@ -101,7 +100,7 @@ pip install -r requirements.txt
 pyinstaller --noconfirm --clean VIOCON_Report_Tool.spec
 ```
 
-Die fertige EXE liegt in `dist\VIOCON_Report_Tool.exe` (~92 MB).
+Die fertige EXE liegt in `dist\VIOCON_Report_Tool.exe` (~91 MB).
 
 ### Projektstruktur
 
@@ -124,7 +123,7 @@ VIOCON_Report_Tool/
 │   └── RELEASE_NOTES.md        # GitHub-Release-Beschreibung (aktuelle Version)
 │
 ├── build/                      # PyInstaller-Zwischendateien (gitignored)
-├── dist/                       # Fertige EXE (gitignored)
+├── dist/                       # Fertige EXE + Unblock.bat (gitignored)
 │
 ├── README.md
 ├── .gitignore
@@ -151,6 +150,6 @@ VIOCON_Report_Tool/
 
 ## Versionshistorie
 
-Siehe [docs/CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
+Siehe [CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/Changelog.md) für alle Änderungen.
 
-Aktuelle Version: **2.3**
+Aktuelle Version: **2.4**
