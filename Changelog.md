@@ -4,20 +4,38 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.4 – Mai 2026
+
+### Bugfixes
+- **Report-Erstellung dauerhaft repariert**: Parameter werden jetzt in `ReportWorker` explizit namentlich übergeben statt per `**dict` – Key-Name-Abweichungen zwischen Extraktor und Report-Funktion können nie mehr zum Absturz führen.
+- **Parameter-Mismatch behoben**: `generate_report()` erhielt fälschlicherweise `logo` statt `logo_path`, `file` statt `filepath` und `rechnungsnr` statt `rnr`.
+- **Fehlender stdlib-Import behoben**: `ModuleNotFoundError: No module named 'email'` beim Start auf anderen PCs durch explizites Bündeln der stdlib-Module (`email`, `http`, `urllib`, `ssl`) in der EXE.
+
+### Verbessert
+- **EXE vollständig selbstständig**: Qt-Plugins (imageformats, TLS, platforms, styles) werden jetzt explizit in die EXE eingebettet. Das Logo wird auf jedem PC korrekt angezeigt; HTTPS-Update-Check und Windows-TLS funktionieren ohne Zusatzdateien.
+- **matplotlib Font-Cache**: Bei gefrorenem EXE-Start wird der Cache-Ordner auf das System-Temp-Verzeichnis umgeleitet – verhindert stillen Absturz wegen read-only `_MEIPASS`.
+- **Unblock.bat**: Neue Hilfsdatei in `dist/` – einmalig auf dem Ziel-PC ausführen, um die Windows-SmartScreen-Blockade zu entfernen.
+- **Build-Ausgabe**: `build.bat` weist nach dem Build auf `Unblock.bat` hin.
+
+---
+
 ## Version 2.3 – Mai 2026
 
 ### Neu
 - **LIS Gutschrift-Abgleich**: Im LIS-Report-Modus kann optional eine Monta-Gutschrift (PDF) hinzugefügt werden. Das Tool erkennt automatisch das Monta-LIS-Rechnungsformat (inkl. realistischer Dateinamen wie `Kunde LIS-MM-YYYY-invoice-....pdf`), summiert alle kWh-Einträge aus dem Marketplace-Abschnitt und fügt einen Abgleichsabschnitt in den Report ein.
-- **Vortex Studios Logo**: Das App-Logo wurde auf das Vortex Studios / VortexNode-Logo aktualisiert.
 
 ### Verbessert
 - **Fehlermeldungen**: Alle Fehler nennen jetzt konkret den Dateinamen, die fehlende Spalte und mögliche Ursachen.
 - **EXE-Archivierung**: `build.bat` sichert die vorherige EXE automatisch mit Versionsnummer unter `dist/archive/`.
-- **Drag & Drop**: Funktioniert jetzt auch wenn die EXE mit UAC-Adminrechten läuft (UIPI-Filter wird korrekt umgangen).
+- **Drag & Drop**: UAC-Admin entfernt (war Ursache für DnD-Blockade durch UIPI); Kompatibilität bleibt durch korrektes Bundling gewährleistet.
 - **Balkendiagramm**: Lange Ladepunkt-Namen werden automatisch abgekürzt (LP 1, LP 2, …) mit einer Legende rechts daneben.
-- **Kein Korrekturbetrag = kein Fehler**: Wenn in der Monta-Rechnung kein Korrekturbetrag gefunden wird, erscheint jetzt keine Warnung mehr – das ist ein gutes Zeichen (keine Korrekturen nötig).
-- **Header-Layout**: „Report Tool" und „Elektromobilität. Einfach. Machen." sitzen näher am orangenen Trennstrich.
-- **Checkmark**: Der Haken in Schritt 3 (Verarbeitung) wird jetzt korrekt gerendert.
+- **Kein Korrekturbetrag = kein Fehler**: Wenn in der Monta-Rechnung kein Korrekturbetrag gefunden wird, erscheint jetzt keine Warnung mehr.
+- **Header-Unterstrichfehler behoben**: Orangene Trennlinie ist jetzt ein eigenes Widget statt CSS-`border-bottom` – keine Artefakte unter Logo, Trenner oder Versionsnummer.
+- **Hinweistexte**: LIS-Modus zeigt „Team-Ladevorgänge", Flotten-Modus „Flotten-Ladevorgänge".
+- **Checkmark**: Fortschrittsbalken wird vor `set_done()` gesetzt – korrekte Darstellung.
+- **Flotten-Report – Roaming-Netzwerke**: Nur echte externe Roaming-Ladevorgänge (leere `priceGroup`) werden angezeigt.
+- **Flotten-Report – Ladearten-Übersicht**: Neuer Abschnitt im Flottenmanager zeigt Aufschlüsselung nach `kind` (charge-sponsored / charge-professional / charge-roaming-emsp).
+- **Archivierung**: Backup-EXEs werden mit `_1`, `_2`, `_3`… nummeriert.
 
 ---
 
@@ -27,7 +45,7 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 - **Lade-Bildschirm**: Das Tool zeigt sofort nach dem Start einen VIOCON-Splash-Screen mit animiertem Fortschrittsbalken. Alle schweren Module (pandas, matplotlib, reportlab usw.) werden im Hintergrund geladen – der Balken zeigt den Fortschritt in Echtzeit an. Das Hauptfenster öffnet sich erst, wenn alles vollständig geladen ist.
 
 ### Verbessert
-- **UAC-Admin-Modus**: Die EXE fordert beim Start automatisch Administrator-Rechte an (Windows-UAC-Prompt), was die Kompatibilität mit Windows-Firmenrechnern erhöht.
+- **UAC-Admin entfernt**: Die EXE läuft ohne Administrator-Rechte – war vorher Ursache für Drag-&-Drop-Blockade (UIPI). Kompatibilität bleibt durch korrektes Bundling gewährleistet.
 - **Kleinere EXE**: Durch gezielte Modul-Bündelung von ~290 MB auf ~92 MB reduziert – schnellere Verteilung und kürzere Entpack-Zeit beim Start.
 - **Antivirus-Kompatibilität**: UPX-Komprimierung deaktiviert, um Fehlalarme von Antivirensoftware zu vermeiden.
 - **Portabilität**: Zuverlässiger Betrieb auf anderen Windows-11-Rechnern ohne Python-Installation sichergestellt.
@@ -74,4 +92,3 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 - Manuelle Dateiauswahl über den Windows-Dateidialog.
 - Einfache Ergebnisausgabe als PDF.
 - Keine Python-Installation auf dem Zielrechner erforderlich (eigenständige EXE).
-
