@@ -18,14 +18,15 @@ Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladev
 |-------|-------------|-------------------|
 | **LIS-Report** | Ladeinfrastruktur-Auswertung | 2× Excel (Ladevorgänge + Ladestationen) · optional: 1× PDF (Monta-Gutschrift) |
 | **Flotten-Report** | Flotten-Buchungsnachweis | 1× Excel (Ladevorgänge) + 1× PDF (Monta-Rechnung) |
-| **Standard** | LIS + Flotte in einem Schritt | 3× Excel + 1× PDF |
+| **Standard** | LIS + Flotte in einem Schritt | 3× Excel + 1× PDF (Monta-Rechnung) · optional: 1× PDF (LIS-Gutschrift) |
 
 ---
 
 ## Features
 
-- **Drag & Drop** – Dateien direkt ins Fenster ziehen
+- **Drag & Drop** – Dateien direkt ins Fenster ziehen, beliebig viele und jederzeit
 - **Automatische Dateierkennung** – Das Tool erkennt selbstständig, welche Datei welchem Typ entspricht
+- **Warndialog bei Konflikten** – Bei mehrfachen oder nicht erkannten Dateien: Wahl zwischen „Trotzdem erstellen" und „Abbrechen"
 - **Metadaten-Vorschau** – Vor der Verarbeitung werden Kunde, Monat, Zeitraum und Rechnungsnummer angezeigt
 - **Hintergrund-Verarbeitung** – Die UI bleibt während der Report-Generierung reaktionsfähig
 - **Ladebildschirm** – Animierter Fortschrittsbalken beim Start
@@ -153,4 +154,4 @@ VIOCON_Report_Tool/
 
 Siehe [CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/CHANGELOG.md) für alle Änderungen.
 
-Aktuelle Version: **2.4**
+Aktuelle Version: **2.6**
