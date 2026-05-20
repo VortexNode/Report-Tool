@@ -4,6 +4,22 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.6 – Mai 2026
+
+### Neu
+- **Warndialog bei Auffälligkeiten**: Wenn beim Klicken auf „Report erstellen" Probleme erkannt werden (Dateityp mehrfach vorhanden, nicht erkannte Dateien), erscheint ein Dialog mit einer genauen Beschreibung. Der Nutzer kann wählen: **Trotzdem erstellen** (Report wird mit den verfügbaren Dateien erstellt) oder **Abbrechen** (zurück zu Schritt 1, Dateien neu auswählen).
+
+### Bugfixes
+- **Datei-Upload nach Pflichtdateien wieder möglich**: Nach dem Hinzufügen der Pflichtdateien wurde Schritt 2 (DropZone + Dateiliste) fälschlicherweise deaktiviert. Weitere Dateien konnten weder per Dialog noch per Drag & Drop hinzugefügt werden. Behoben durch neue Methode `set_files_ready()` die den Inhalt aktiv lässt.
+
+### Verbessert
+- **Unbegrenzte Datei-Uploads**: Dateien können jetzt in beliebiger Anzahl hochgeladen werden. Zuvor wurden bei Typkonflikten Dateien lautlos überschrieben.
+- **Modus-Karten deutlich besser lesbar**: Beschreibungen in hellem Weiß mit Trennlinie; Hinweistexte in klar lesbarem Hellgrau (#c8cee8, Kontrast ~8:1 statt zuvor ~3:1). Schriftgröße erhöht, Kartenhöhe passt sich automatisch an.
+- **Standard-Modus: 5 Dateien**: Die LIS-Gutschrift wird jetzt auch im Standard-Modus erkannt und verarbeitet (3 Excel + 1 PDF Monta-Rechnung · optional: 1 PDF LIS-Gutschrift). Dateianzahl-Anzeige zeigt nun „4–5 Dateien".
+- **Umlaute**: Umlautdarstellung in GUI und PDF-Reports erneut geprüft – funktioniert korrekt in allen Bereichen.
+
+---
+
 ## Version 2.5 – Mai 2026
 
 ### Neu
