@@ -4,6 +4,29 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.7 – Juni 2026
+
+### Neu
+- **Original-Rechnung im Report**: Eine vorhandene Monta-Rechnung bzw. -Gutschrift (PDF) wird jetzt als erste Seite(n) vor den generierten Report gestellt. Die Monta-Rechnung ist dadurch im Flotten- und Standard-Modus nicht mehr verpflichtend, sondern optional (wie schon zuvor im LIS-Modus).
+- **Ladevorgänge charge@company in der Buchungsübersicht**: Der Flotten-Report zeigt in der Buchungsübersicht jetzt eine eigene Zeile „Ladevorgänge charge@company" mit der dazugehörigen kWh-Menge laut Monta-Rechnung – als Vergleichswert zur eigenen Zählung der Stationen.
+- **„Nutzer"-Kennzahl im Flotten-Report**: Der Überblick im Flotten-Report zeigt zusätzlich die Anzahl unterschiedlicher Nutzer als KPI-Box.
+- **Datei entfernen per Klick**: Im Datei-Auswahl-Dialog kann jede Datei über ein „✕"-Symbol einzeln wieder aus der Liste entfernt werden.
+- **Geladene Energie nach Preisgruppe**: Die kWh-Tabelle im LIS-Report gruppiert jetzt nach Preisgruppe (charge@company, charge@work, charge@home, ohne Preisgruppe) statt nach Nutzungsart – für eine genauere Kostenstellen-Zuordnung.
+
+### Verbessert
+- **Automatische Tabellenbreite**: In allen Tabellen der PDF-Reports (Buchungsübersicht, Kostenstellenübersicht, Detailnachweis, Roaming-Netzwerke, LIS-Tabellen) wird eine Spalte automatisch verbreitert, wenn ihr Inhalt sonst über den Rand hinauslaufen würde.
+- **Robuster Excel-Import**: Spaltennamen und Zahlenformate (deutsch „1.234,56" und englisch „1,234.56") werden jetzt unabhängig von der genauen Schreibweise erkannt und korrekt eingelesen.
+- **Kennzahlen ohne Rundungsfehler**: Die Zahlen in den Überblick-KPI-Boxen werden jetzt ohne Zwischenrundung direkt aus den Rohdaten berechnet.
+- **Schlankerer Flotten-Überblick**: „Ladekosten netto" und „Vorsteuer" wurden aus dem Überblick des Flotten-Reports entfernt (LIS-Report unverändert).
+- **Rechnungsnummer ohne Formatprüfung**: Die Rechnungsnummer aus der Monta-Rechnung wird unverändert übernommen, ohne strenge Format-Prüfung – dadurch entfallen unnötige Warnungen bei abweichenden Formaten.
+- **Lesbares Balkendiagramm „Nutzung je Ladepunkt" (LIS-Report)**: Sind die Ladepunkt-Bezeichnungen auf der x-Achse zu lang bzw. zu zahlreich, werden stattdessen nur noch Nummern (1, 2, 3, …) angezeigt. Die Zuordnung der Nummern findet sich in einer neuen Spalte „Nr." in der Tabelle „Betreute Ladestationen".
+- **Tortendiagramm „Nutzungsverteilung gesamt" (LIS-Report)**: Wird jetzt – wie die kWh-Tabelle „Geladene Energie in kWh" – nach Preisgruppe (charge@company, charge@work, charge@home, ohne Preisgruppe, ggf. weitere) statt nach Nutzungsart ausgewertet, sodass beide Auswertungen konsistent zueinander sind.
+
+### Entfernt
+- **Blueprint-System**: Das Blueprint-Feature (Kundenwünsche als JSON-Datei) wurde aus dem Standard-Tool entfernt.
+
+---
+
 ## Version 2.6 – Mai 2026
 
 ### Neu
