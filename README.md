@@ -6,6 +6,12 @@
 
 ---
 
+## Ankündigungen
+
+<!-- Hier stehen aktuelle Ankündigungen -->
+
+---
+
 ## Überblick
 
 Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladevorgänge, Ladestationen, Monta-Rechnungen) vollständige PDF-Reports erstellt. Es ist als eigenständige EXE ausgeliefert – keine Python-Installation oder weitere Software notwendig.
@@ -17,8 +23,8 @@ Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladev
 | Modus | Beschreibung | Benötigte Dateien |
 |-------|-------------|-------------------|
 | **LIS-Report** | Ladeinfrastruktur-Auswertung | 2× Excel (Ladevorgänge + Ladestationen) · optional: 1× PDF (Monta-Gutschrift) |
-| **Flotten-Report** | Flotten-Buchungsnachweis | 1× Excel (Ladevorgänge) + 1× PDF (Monta-Rechnung) |
-| **Standard** | LIS + Flotte in einem Schritt | 3× Excel + 1× PDF (Monta-Rechnung) · optional: 1× PDF (LIS-Gutschrift) |
+| **Flotten-Report** | Flotten-Buchungsnachweis | 1× Excel (Ladevorgänge) · optional: 1× PDF (Monta-Rechnung) |
+| **Standard** | LIS + Flotte in einem Schritt | 3× Excel · optional: 1× PDF (Monta-Rechnung), 1× PDF (LIS-Gutschrift) |
 
 ---
 
@@ -30,7 +36,10 @@ Das VIOCON Report Tool ist ein Windows-Desktop-Programm, das aus Rohdaten (Ladev
 - **Metadaten-Vorschau** – Vor der Verarbeitung werden Kunde, Monat, Zeitraum und Rechnungsnummer angezeigt
 - **Hintergrund-Verarbeitung** – Die UI bleibt während der Report-Generierung reaktionsfähig
 - **Ladebildschirm** – Animierter Fortschrittsbalken beim Start
-- **Update-Prüfung** – Automatische Prüfung auf neue Versionen beim Start
+- **Original-Rechnung im Report** – Vorhandene Monta-Rechnung/-Gutschrift wird als erste Seite(n) vor den generierten Report gestellt
+- **Robuster Excel-Import** – Abweichende Spaltennamen und Zahlenformate (deutsch/englisch) werden automatisch erkannt
+- **Automatische Tabellenbreite** – Spalten in den PDF-Tabellen passen sich an lange Texte an, sodass nichts abgeschnitten wird
+- **Neuigkeiten-Benachrichtigung** – Popup wenn neue Inhalte auf GitHub verfügbar sind
 - **Einstellbarer Speicherpfad** – Standard-Ordner für gespeicherte Reports konfigurierbar
 
 ---
@@ -152,6 +161,6 @@ VIOCON_Report_Tool/
 
 ## Versionshistorie
 
-Siehe [CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/CHANGELOG.md) für alle Änderungen.
+Siehe [docs/CHANGELOG.md](https://github.com/VortexStudiosLab/Report-Tool/blob/main/CHANGELOG.md) für alle Änderungen.
 
-Aktuelle Version: **2.6**
+Aktuelle Version: **2.7**
