@@ -4,6 +4,28 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 2.9 – Juli 2026
+
+### Bugfixes
+- **LIS-Report: Inaktive Ladestationen in „Betreute Ladestationen"**: Die Tabelle zeigte bisher alle Stationen aus der Ladestationen-Datei, unabhängig vom Status. Behoben – es werden nur noch Stationen mit `isActive = WAHR` aufgeführt.
+- **LIS-Report: Individuell benannte Preisgruppen anderer Firmenflotten wurden als „Öffentlich (Roaming)" gezählt**: Ladevorgänge mit einer kundenspezifischen Preisgruppe (z. B. „charge@business ...") wurden bisher fälschlich dem öffentlichen Roaming statt der Flotten-Nutzung zugeordnet, sobald sie nicht exakt „charge@company" hießen. Erkennbar am Team-Namen (endet auf „Fleet"). Behoben – solche Ladevorgänge zählen jetzt korrekt als Flotte.
+- **Flotten-Report: Rundungsfehler durch nicht berücksichtigte Ladevorgänge an eigenen Stationen**: Die vermeintlich kostenlosen Ladevorgänge an eigenen Stationen (charge@company) wurden in der Buchungsübersicht nur als Kennzahl mit hartkodiertem Betrag „0,00" angezeigt; ihr tatsächlicher (meist geringfügiger) Betrag floss nirgends in die Gesamtsumme ein. Über viele Ladevorgänge hinweg führte das zu Rundungsdifferenzen gegenüber der Monta-Rechnung. Behoben – die realen Beträge werden jetzt angezeigt und in „GESAMT FÄLLIGER BETRAG" mit eingerechnet.
+- **LIS-Report: Doppelt vergebene Ladepunkt-Nummern im Balkendiagramm „Nutzung je Ladepunkt"**: Ladepunkte, die nicht (mehr) in der aktiv-gefilterten Ladestationen-Datei stehen (z. B. inzwischen deaktivierte Stationen mit Ladevorgängen im Berichtsmonat), aber im Diagramm durchnummeriert werden mussten, konnten durch die bisherige Positions-basierte Nummerierung zufällig dieselbe Nummer wie eine echte, bereits vergebene Station erhalten. Behoben – solche Ladepunkte erhalten jetzt garantiert eindeutige Nummern direkt nach der höchsten vergebenen Nummer.
+
+---
+
+## Version 2.8 – Juni 2026
+
+### Bugfixes
+- **LIS-Report: Fehlende Ladepunkte in der kWh-Tabelle**: Ladepunkte die in den Transaktionsdaten vorhanden sind, aber nicht in der Ladestationen-Datei, wurden bisher stillschweigend aus allen Tabellen und dem Balkendiagramm ausgeschlossen. Behoben – solche Ladepunkte werden jetzt alphabetisch ans Ende der Auswertung angehängt. Die bekannte Reihenfolge aus der Ladestationen-Datei bleibt für die dort erfassten Punkte erhalten.
+- **Flotten-Report: `charge@company`-Zeile fehlte in April- und Mai-Reports**: Monta hat zwischen März und April 2026 die Steuerklassifikation für interne Ladevorgänge von `0,00 %` auf den Code `O` (Outside scope) geändert. Das Tool erkannte `O` (und `AE`) bisher nicht und zeigte die Zeile „Ladevorgänge charge@company" in der Buchungsübersicht nicht an. Behoben – beide Codes werden jetzt identisch zu `0,00 %` behandelt.
+
+### Verbessert
+- **Splash-Screen für Blueprint-Ersteller**: Der Blueprint-Ersteller hat jetzt ebenfalls den Ladebalken beim Start – schwere Module (pandas, matplotlib, reportlab usw.) werden im Hintergrund geladen, das Hauptfenster öffnet sich erst wenn alles bereit ist.
+- **Update-Link korrigiert**: Das Update-Popup öffnet jetzt direkt die Releases-Seite (`/releases`). Der Info-Dialog (☰ → Infos) zeigt weiterhin die allgemeine Projektseite.
+
+---
+
 ## Version 2.7 – Juni 2026
 
 ### Neu
