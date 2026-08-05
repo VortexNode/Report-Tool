@@ -4,6 +4,25 @@ Alle wichtigen Änderungen und Neuerungen werden hier dokumentiert.
 
 ---
 
+## Version 3.1 – August 2026
+
+### Bugfixes
+- **Flotten-Report: Deutsche Marketplace-Ladevorgänge fälschlich als „Ausland" ausgewiesen**: Enthielt die Rohdaten-Spalte `chargeCountry` den ausgeschriebenen Ländernamen „GERMANY" statt des ISO-Codes „DE", griff der Ländervergleich nicht – die Position wurde als „Ausland GERMANY" mit dem Hinweis „EU-Vorsteuervergütung prüfen" ausgewiesen statt korrekt als abzugsfähige deutsche Vorsteuer. Behoben – „GERMANY"/„DEUTSCHLAND" werden jetzt beim Einlesen auf „DE" normalisiert.
+
+---
+
+## Version 3.0 – August 2026
+
+### Bugfixes
+- **Flotten-Report: Falsche USt bei gemischtem Roaming (Reverse Charge + Auslands-MwSt)**: Die selbst zu versteuernde USt für Reverse-Charge-Roaming (§13b UStG) wurde bisher pauschal mit 19 % auf das *gesamte* Roaming berechnet – auch auf den Anteil, der bereits mit einer echten ausländischen MwSt in Rechnung gestellt wurde. Dadurch stimmte die USt-Summe in „GESAMT FÄLLIGER BETRAG" nicht mit den einzeln ausgewiesenen Positionen überein, sobald ein Monat beide Fälle gemischt enthielt. Behoben – die 19 % werden jetzt ausschließlich auf den tatsächlichen Reverse-Charge-Anteil angewendet.
+- **Flotten-Report: `kind`-Klassifizierung ohne Rückfallebene**: Enthielt die Excel-Spalte `kind` einen von Monta neu eingeführten, noch nicht erfassten Wert, fiel die betroffene Zeile stillschweigend in die falsche Kategorie (Marketplace statt Roaming/Sponsored). Behoben – `kat_fn()` prüft bei unbekanntem `kind` zusätzlich `transactionName` als zweites Signal.
+
+### Neu
+- **Flotten-Report: Abgleich Rohdaten ↔ Monta-Rechnung**: Die Buchungsübersicht nutzt jetzt die aus der Monta-Rechnung (PDF) gelesenen Steuerpositionen (Roaming/Marketplace je Steuersatz) als maßgebliche Quelle, sofern eine Rechnung mitgegeben wurde. Weicht der aus den Rohdaten berechnete Betrag ab, erscheint ein Hinweis in der Buchungshinweis-Spalte; Positionen, die nur in der Rechnung stehen (z. B. weil die Rohdaten sie nicht als Einzeltransaktion enthalten oder falsch klassifiziert haben), werden zusätzlich ergänzt. Ohne Rechnung greift weiterhin die bisherige pauschale Korrektur. Die Kostenstellen- und Detailauswertung bleibt unverändert aus den Rohdaten, da die Rechnung keine Transaktionsdetails liefert.
+- **Flotten-Report: Abgleich schon in der Vorschau**: Schritt 2 (Datei-Auswahl) zeigt Abweichungen zwischen Excel-Rohdaten und Monta-Rechnung jetzt bereits vor der Report-Erstellung als Warnung an.
+
+---
+
 ## Version 2.9 – Juli 2026
 
 ### Bugfixes
